@@ -16,6 +16,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sunzn.menu.swipe.library.port.OnSwipeListener;
@@ -128,7 +129,7 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener, 
 
         rView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 /**
                  * This will ensure that this RecyclerTouchListener is paused during recycler view scrolling.
                  * If a scroll listener is already assigned, the caller should still pass scroll changes through
@@ -143,7 +144,7 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener, 
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
 
             }
         });
@@ -159,12 +160,12 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener, 
     }
 
     @Override
-    public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent motionEvent) {
+    public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent motionEvent) {
         return handleTouchEvent(motionEvent);
     }
 
     @Override
-    public void onTouchEvent(RecyclerView rv, MotionEvent motionEvent) {
+    public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent motionEvent) {
         handleTouchEvent(motionEvent);
     }
 
