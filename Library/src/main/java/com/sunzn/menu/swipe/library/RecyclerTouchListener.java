@@ -904,7 +904,7 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener, 
     }
 
     private boolean shouldIgnoreAction(int touchedPosition) {
-        return rView == null || ignoredViewTypes.contains(rView.getAdapter().getItemViewType(touchedPosition));
+        return rView == null || touchedPosition == ListView.INVALID_POSITION || ignoredViewTypes.contains(rView.getAdapter().getItemViewType(touchedPosition));
     }
 
     private enum Animation {
